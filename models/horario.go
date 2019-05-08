@@ -52,7 +52,7 @@ func GetHorarioById(id int) (v *Horario, err error) {
 func GetAllHorario(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Horario))
+	qs := o.QueryTable(new(Horario)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
