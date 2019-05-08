@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"encoding/json"
-	"errors"
 	"github.com/ACMUD/modulo-inscripciones_crud/models"
 	"strconv"
 	"strings"
@@ -36,12 +35,12 @@ func (c *FranjaHorariaController) Post() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if _, err := models.AddFranjaHoraria(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = v
+			c.Data["json"] = models.Alert{Type: "success", Code: "S_201", Body: v}
 		} else {
-			c.Data["json"] = err.Error()
+			c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 	}
 	c.ServeJSON()
 }
@@ -58,7 +57,7 @@ func (c *FranjaHorariaController) GetOne() {
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetFranjaHorariaById(id)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 	} else {
 		c.Data["json"] = v
 	}
@@ -110,7 +109,7 @@ func (c *FranjaHorariaController) GetAll() {
 		for _, cond := range strings.Split(v, ",") {
 			kv := strings.SplitN(cond, ":", 2)
 			if len(kv) != 2 {
-				c.Data["json"] = errors.New("Error: invalid query key/value pair")
+				c.Data["json"] = models.Alert{Type: "error", Code: "S_400", Body: "Error:invalid query key/value pair"}
 				c.ServeJSON()
 				return
 			}
@@ -121,7 +120,7 @@ func (c *FranjaHorariaController) GetAll() {
 
 	l, err := models.GetAllFranjaHoraria(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 	} else {
 		c.Data["json"] = l
 	}
@@ -142,12 +141,12 @@ func (c *FranjaHorariaController) Put() {
 	v := models.FranjaHoraria{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateFranjaHorariaById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = models.Alert{Type: "success", Code: "200", Body: "OK"}
 		} else {
-			c.Data["json"] = err.Error()
+			c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 	}
 	c.ServeJSON()
 }
@@ -163,9 +162,9 @@ func (c *FranjaHorariaController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteFranjaHoraria(id); err == nil {
-		c.Data["json"] = "OK"
+		c.Data["json"] = models.Alert{Type: "success", Code: "200", Body: "OK"}
 	} else {
-		c.Data["json"] = err.Error()
+		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 	}
 	c.ServeJSON()
 }
