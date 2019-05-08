@@ -10,7 +10,7 @@ import (
 )
 
 type Sede struct {
-	Id        int    `orm:"column(id);pk"`
+	Id        int    `orm:"column(id);pk;auto"`
 	Nombre    string `orm:"column(nombre)"`
 	Direccion string `orm:"column(direccion);null"`
 	Activo    bool   `orm:"column(activo)"`

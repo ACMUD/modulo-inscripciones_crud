@@ -10,7 +10,7 @@ import (
 )
 
 type TipoIdentificacion struct {
-	Id          int    `orm:"column(id);pk"`
+	Id          int    `orm:"column(id);pk;auto"`
 	Nombre      string `orm:"column(nombre)"`
 	Abreviacion string `orm:"column(abreviacion);null"`
 	Descripcion string `orm:"column(descripcion);null"`

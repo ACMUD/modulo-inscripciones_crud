@@ -10,7 +10,7 @@ import (
 )
 
 type TipoCorreo struct {
-	Id          int    `orm:"column(id);pk"`
+	Id          int    `orm:"column(id);pk;auto"`
 	TipoCorreo  string `orm:"column(tipo_correo)"`
 	Descripcion string `orm:"column(descripcion);null"`
 	Activo      bool   `orm:"column(activo)"`

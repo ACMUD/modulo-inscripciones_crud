@@ -10,7 +10,7 @@ import (
 )
 
 type Horario struct {
-	Id            int            `orm:"column(id);pk"`
+	Id            int            `orm:"column(id);pk;auto"`
 	GrupoInteres  *GrupoInteres  `orm:"column(grupo_interes);rel(fk)"`
 	Periodo       *Periodo       `orm:"column(periodo);rel(fk)"`
 	Dia           *Dia           `orm:"column(dia);rel(fk)"`

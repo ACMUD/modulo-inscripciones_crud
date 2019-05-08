@@ -11,7 +11,7 @@ import (
 )
 
 type Fechas struct {
-	Id          int       `orm:"column(id);pk"`
+	Id          int       `orm:"column(id);pk;auto"`
 	FechaInicio time.Time `orm:"column(fecha_inicio);type(date)"`
 	FechaFinal  time.Time `orm:"column(fecha_final);type(date);null"`
 }

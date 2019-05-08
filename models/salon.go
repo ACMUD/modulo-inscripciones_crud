@@ -10,7 +10,7 @@ import (
 )
 
 type Salon struct {
-	Id     int    `orm:"column(id);pk"`
+	Id     int    `orm:"column(id);pk;auto"`
 	Salon  string `orm:"column(salon)"`
 	Activo bool   `orm:"column(activo)"`
 	Sede   *Sede  `orm:"column(sede);rel(fk)"`

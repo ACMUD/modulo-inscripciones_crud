@@ -10,7 +10,7 @@ import (
 )
 
 type FranjaHoraria struct {
-	Id     int    `orm:"column(id);pk"`
+	Id     int    `orm:"column(id);pk;auto"`
 	Hora   string `orm:"column(hora)"`
 	Activo bool   `orm:"column(activo)"`
 }
