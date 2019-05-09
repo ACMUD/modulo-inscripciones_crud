@@ -10,7 +10,7 @@ import (
 )
 
 type HorarioPersona struct {
-	Id      int      `orm:"column(id);pk"`
+	Id      int      `orm:"column(id);pk;auto"`
 	Horario *Horario `orm:"column(horario);rel(fk)"`
 	Persona *Persona `orm:"column(persona);rel(fk)"`
 }
@@ -47,7 +47,7 @@ func GetHorarioPersonaById(id int) (v *HorarioPersona, err error) {
 func GetAllHorarioPersona(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(HorarioPersona))
+	qs := o.QueryTable(new(HorarioPersona)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

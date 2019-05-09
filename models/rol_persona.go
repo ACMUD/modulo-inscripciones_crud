@@ -10,7 +10,7 @@ import (
 )
 
 type RolPersona struct {
-	Id      int      `orm:"column(id);pk"`
+	Id      int      `orm:"column(id);pk;auto"`
 	Persona *Persona `orm:"column(persona);rel(fk)"`
 	Rol     *Rol     `orm:"column(rol);rel(fk)"`
 }
@@ -47,7 +47,7 @@ func GetRolPersonaById(id int) (v *RolPersona, err error) {
 func GetAllRolPersona(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(RolPersona))
+	qs := o.QueryTable(new(RolPersona)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
