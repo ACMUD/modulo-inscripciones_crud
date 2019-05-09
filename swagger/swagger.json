@@ -15,6 +15,179 @@
     },
     "basePath": "/v1",
     "paths": {
+        "/correo/": {
+            "get": {
+                "tags": [
+                    "correo"
+                ],
+                "description": "get Correo",
+                "operationId": "CorreoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Correo"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "correo"
+                ],
+                "description": "create Correo",
+                "operationId": "CorreoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Correo content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Correo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Correo"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/correo/{id}": {
+            "get": {
+                "tags": [
+                    "correo"
+                ],
+                "description": "get Correo by id",
+                "operationId": "CorreoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Correo"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "correo"
+                ],
+                "description": "update the Correo",
+                "operationId": "CorreoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Correo content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Correo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Correo"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "correo"
+                ],
+                "description": "delete the Correo",
+                "operationId": "CorreoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
         "/dia/": {
             "get": {
                 "tags": [
@@ -1226,6 +1399,179 @@
                 }
             }
         },
+        "/horario_persona/": {
+            "get": {
+                "tags": [
+                    "horario_persona"
+                ],
+                "description": "get HorarioPersona",
+                "operationId": "HorarioPersonaController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HorarioPersona"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "horario_persona"
+                ],
+                "description": "create HorarioPersona",
+                "operationId": "HorarioPersonaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HorarioPersona content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HorarioPersona"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.HorarioPersona"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/horario_persona/{id}": {
+            "get": {
+                "tags": [
+                    "horario_persona"
+                ],
+                "description": "get HorarioPersona by id",
+                "operationId": "HorarioPersonaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HorarioPersona"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "horario_persona"
+                ],
+                "description": "update the HorarioPersona",
+                "operationId": "HorarioPersonaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HorarioPersona content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HorarioPersona"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HorarioPersona"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "horario_persona"
+                ],
+                "description": "delete the HorarioPersona",
+                "operationId": "HorarioPersonaController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
         "/identificacion/": {
             "get": {
                 "tags": [
@@ -1899,6 +2245,179 @@
                 ],
                 "description": "delete the Rol",
                 "operationId": "RolController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/rol_persona/": {
+            "get": {
+                "tags": [
+                    "rol_persona"
+                ],
+                "description": "get RolPersona",
+                "operationId": "RolPersonaController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RolPersona"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "rol_persona"
+                ],
+                "description": "create RolPersona",
+                "operationId": "RolPersonaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RolPersona content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RolPersona"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RolPersona"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/rol_persona/{id}": {
+            "get": {
+                "tags": [
+                    "rol_persona"
+                ],
+                "description": "get RolPersona by id",
+                "operationId": "RolPersonaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RolPersona"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "rol_persona"
+                ],
+                "description": "update the RolPersona",
+                "operationId": "RolPersonaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RolPersona content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RolPersona"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RolPersona"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "rol_persona"
+                ],
+                "description": "delete the RolPersona",
+                "operationId": "RolPersonaController.Delete",
                 "parameters": [
                     {
                         "in": "path",
@@ -2612,6 +3131,25 @@
         }
     },
     "definitions": {
+        "models.Correo": {
+            "title": "Correo",
+            "type": "object",
+            "properties": {
+                "Correo": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Persona": {
+                    "$ref": "#/definitions/models.Persona"
+                },
+                "TipoCorreo": {
+                    "$ref": "#/definitions/models.TipoCorreo"
+                }
+            }
+        },
         "models.Dia": {
             "title": "Dia",
             "type": "object",
@@ -2753,6 +3291,22 @@
                 }
             }
         },
+        "models.HorarioPersona": {
+            "title": "HorarioPersona",
+            "type": "object",
+            "properties": {
+                "Horario": {
+                    "$ref": "#/definitions/models.Horario"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Persona": {
+                    "$ref": "#/definitions/models.Persona"
+                }
+            }
+        },
         "models.Identificacion": {
             "title": "Identificacion",
             "type": "object",
@@ -2829,6 +3383,22 @@
                 },
                 "Nombre": {
                     "type": "string"
+                }
+            }
+        },
+        "models.RolPersona": {
+            "title": "RolPersona",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Persona": {
+                    "$ref": "#/definitions/models.Persona"
+                },
+                "Rol": {
+                    "$ref": "#/definitions/models.Rol"
                 }
             }
         },
@@ -2914,10 +3484,6 @@
     },
     "tags": [
         {
-            "name": "periodo",
-            "description": "PeriodoController operations for Periodo\n"
-        },
-        {
             "name": "estado",
             "description": "EstadoController operations for Estado\n"
         },
@@ -2926,12 +3492,24 @@
             "description": "FechasController operations for Fechas\n"
         },
         {
-            "name": "franja_horaria",
-            "description": "FranjaHorariaController operations for FranjaHoraria\n"
+            "name": "correo",
+            "description": "CorreoController operations for Correo\n"
+        },
+        {
+            "name": "estado_usuario",
+            "description": "EstadoUsuarioController operations for EstadoUsuario\n"
+        },
+        {
+            "name": "periodo",
+            "description": "PeriodoController operations for Periodo\n"
         },
         {
             "name": "grupo_interes",
             "description": "GrupoInteresController operations for GrupoInteres\n"
+        },
+        {
+            "name": "sede",
+            "description": "SedeController operations for Sede\n"
         },
         {
             "name": "persona",
@@ -2942,12 +3520,16 @@
             "description": "RolController operations for Rol\n"
         },
         {
-            "name": "identificacion",
-            "description": "IdentificacionController operations for Identificacion\n"
+            "name": "horario_persona",
+            "description": "HorarioPersonaController operations for HorarioPersona\n"
         },
         {
-            "name": "estado_usuario",
-            "description": "EstadoUsuarioController operations for EstadoUsuario\n"
+            "name": "tipo_correo",
+            "description": "TipoCorreoController operations for TipoCorreo\n"
+        },
+        {
+            "name": "identificacion",
+            "description": "IdentificacionController operations for Identificacion\n"
         },
         {
             "name": "salon",
@@ -2962,12 +3544,12 @@
             "description": "HorarioController operations for Horario\n"
         },
         {
-            "name": "sede",
-            "description": "SedeController operations for Sede\n"
+            "name": "franja_horaria",
+            "description": "FranjaHorariaController operations for FranjaHoraria\n"
         },
         {
-            "name": "tipo_correo",
-            "description": "TipoCorreoController operations for TipoCorreo\n"
+            "name": "rol_persona",
+            "description": "RolPersonaController operations for RolPersona\n"
         },
         {
             "name": "tipo_identificacion",
