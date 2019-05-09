@@ -68,7 +68,7 @@ go get -u github.io/beego/bee
 ```
 </details>
 
-
+---
 ### Descargar el proyecto
 
 no sejecutar `git clone` ya que puede generar problemas si se clona en cualquier directorio, para evitar ello se usara `go get` con ello automaticamente se creara el siguiente directorio `go/src/github.com/ACMUD/modulo-inscripciones_crud` en esta carpeta estara el proyecto listo para su ejecucion.
@@ -76,3 +76,29 @@ no sejecutar `git clone` ya que puede generar problemas si se clona en cualquier
 ```javascript
 go get github.com/ACMUD/modulo-inscripciones_crud
 ```
+---
+### Ejecucucion
+
+Para la ejecucion del Api se creo un archivo llamado `ejec.sh` en este estan las sentencias para la correcta ejecucion del api.
+
+El archivo debe tener permisos de ejecucion, si no los tiene, ejecutar dentro de la carpeta del proyecto:
+
+```javascript
+chmod 777 ./eject.sh
+```
+<details>
+<summary>variables del bash</summary>
+En el bash se encuentran la siguientes variables:
+
+- INSCRIPCION_DB
+    - nombre de la base de datos, este se cambia en caso de que el script sea ejecutado en una base de datos diferente al valor ya seteado en el bash.
+- INSCRIPCION_PASSDB
+    - password de la base de datos o conexion.
+- INSCRIPCION_URLS
+    - url de conexion a la base de datos, en este caso se tiene por defecto localhost, generalmente se puede dejar tal como esta.
+- INSCRIPCION_USERDB
+    - usuario con permisos para la base de datos.
+- INSCRIPCION_HTTP_PORT
+    - puerto de ejecucion el api, por defecto esta el 8080, pero este se puede cambiar a preferencia.
+
+</details>
