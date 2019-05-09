@@ -17,26 +17,22 @@ sudo su postgres -l # or sudo -u postgres -i
 initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data/'
 exit
 ```
-<details>
+</details>
 
 <details>
-<summary><h4>Postgres</h4></summary>
-Ejemplo de instalacion de postgres para manjaro , si usted tiene otra distribucion o SO diferente por favor buscar el como instalarlo.
+<summary><h4>Go version 1.12 </h4></summary>
+Ejemplo de instalacion de Go para manjaro , si usted tiene otra distribucion o SO diferente por favor buscar el como instalarlo.
 
 ```javascript
-sudo pacman -S postgresql
+sudo pacman -S go
 ```
 
-```javascript
-sudo su postgres -l # or sudo -u postgres -i
-initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data/'
-exit
-```
-<details>
+en otros otras distribuciones sera usar `apt-get` o `yum install` , pero el paquete se encuentra como ``go``
+</details>
 
 
-## algo
+<!-- ## algo -->
 
-```javascript
+<!-- ```javascript
 go get github.com/ACMUD/modulo-inscripciones_crud
-```
+``` -->
