@@ -1,1 +1,1 @@
-bee run
+INSCRIPCION_DB=inscripcion INSCRIPCION_PASSDB=postgres INSCRIPCION_URLS=localhost INSCRIPCION_USERDB=postgres INSCRIPCION_HTTP_PORT=8080 bee run -downdoc=true -gendoc=true
