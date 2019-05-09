@@ -16,12 +16,6 @@ import (
 func init() {
 	ns := beego.NewNamespace("/v1",
 
-		beego.NSNamespace("/periodo",
-			beego.NSInclude(
-				&controllers.PeriodoController{},
-			),
-		),
-
 		beego.NSNamespace("/estado",
 			beego.NSInclude(
 				&controllers.EstadoController{},
@@ -34,15 +28,33 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/franja_horaria",
+		beego.NSNamespace("/correo",
 			beego.NSInclude(
-				&controllers.FranjaHorariaController{},
+				&controllers.CorreoController{},
+			),
+		),
+
+		beego.NSNamespace("/estado_usuario",
+			beego.NSInclude(
+				&controllers.EstadoUsuarioController{},
+			),
+		),
+
+		beego.NSNamespace("/periodo",
+			beego.NSInclude(
+				&controllers.PeriodoController{},
 			),
 		),
 
 		beego.NSNamespace("/grupo_interes",
 			beego.NSInclude(
 				&controllers.GrupoInteresController{},
+			),
+		),
+
+		beego.NSNamespace("/sede",
+			beego.NSInclude(
+				&controllers.SedeController{},
 			),
 		),
 
@@ -58,15 +70,21 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/identificacion",
+		beego.NSNamespace("/horario_persona",
 			beego.NSInclude(
-				&controllers.IdentificacionController{},
+				&controllers.HorarioPersonaController{},
 			),
 		),
 
-		beego.NSNamespace("/estado_usuario",
+		beego.NSNamespace("/tipo_correo",
 			beego.NSInclude(
-				&controllers.EstadoUsuarioController{},
+				&controllers.TipoCorreoController{},
+			),
+		),
+
+		beego.NSNamespace("/identificacion",
+			beego.NSInclude(
+				&controllers.IdentificacionController{},
 			),
 		),
 
@@ -88,15 +106,15 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/sede",
+		beego.NSNamespace("/franja_horaria",
 			beego.NSInclude(
-				&controllers.SedeController{},
+				&controllers.FranjaHorariaController{},
 			),
 		),
 
-		beego.NSNamespace("/tipo_correo",
+		beego.NSNamespace("/rol_persona",
 			beego.NSInclude(
-				&controllers.TipoCorreoController{},
+				&controllers.RolPersonaController{},
 			),
 		),
 
