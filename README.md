@@ -212,4 +212,4 @@ para el Delete solo se necesita mandar el Id, pero este metodo no se tiene recom
 </details>
 
 
-documentacion realizada por @BOTOOM
+documentacion realizada por [BOTOOM](https://github.com/BOTOOM)
