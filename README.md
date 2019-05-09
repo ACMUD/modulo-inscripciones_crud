@@ -5,7 +5,7 @@ Api para la gestion de inscripcion de estudiantes o personas externas a la unive
 ## Requerimientos
 
 <details>
-<summary><h4>Postgres</h4></summary>
+<summary>Postgres</summary>
 Ejemplo de instalacion de postgres para manjaro , si usted tiene otra distribucion o SO diferente por favor buscar el como instalarlo.
 
 ```javascript
@@ -20,7 +20,7 @@ exit
 </details>
 
 <details>
-<summary><h4>Go version 1.12 </h4></summary>
+<summary>Go version 1.12</summary>
 Ejemplo de instalacion de Go para manjaro , si usted tiene otra distribucion o SO diferente por favor buscar el como instalarlo.
 
 ```javascript
